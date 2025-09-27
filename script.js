@@ -14,4 +14,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     formMessage.textContent = 'Thank you for reaching out, ' + name + '!';
     formMessage.style.color = 'green';
     this.reset();
+
+    // Add response to the Responses section
+    const responsesList = document.getElementById('responsesList');
+    if (responsesList) {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${name}</strong> (${email}):<br>${message}`;
+        responsesList.prepend(li);
+    }
 });
